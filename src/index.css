@@ -1,0 +1,356 @@
+*, body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fontgaramond);
+  scroll-behavior: smooth;
+  color: var(--primary);
+  
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root{
+  --teal: #768D89;
+  --offWhite: #F6F6F6;
+  --fontBodoni: "Bodoni Moda", serif;
+  --fontgaramond: "EB Garamond", serif;
+  --primary:rgb(56, 56, 56);
+  --secondary:#abb8c3;
+  --transition: 0.3s ease-in-out;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* //special classes  */
+.background ,.living, .bed, .swimming,.r-grid .one, .r-grid .two, .r-grid .three, .footer, .carousel-item, .IdBackground{
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+}
+.background{
+  background-image: url('./assets/WhatsApp\ Image\ 2024-09-08\ at\ 07.37.12.jpeg');
+}
+.carousel-indicators button {
+  width: 14px;  
+  height: 14px; 
+  border-radius: 50%; 
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  border: none; 
+  margin: 0 3px; 
+  transition: background-color 0.3s ease; 
+}
+
+.carousel-indicators button.active {
+  background-color: var(--offWhite); /* Change this to your desired active color (e.g., Bootstrap's primary color) */
+}
+
+.carousel-indicators {
+  bottom: 10px; 
+}
+
+
+.carousel-item, .IdBooking{
+  height: 500px;
+}
+form button, .regBtn{
+  width: 100%;
+  padding: 7px 5px;
+  border-radius: 5px;
+  background: var(--primary);
+
+  margin-top: 30px;
+}
+.heading, .navbar-brand{
+  font-family: var(--fontBodoni);
+}
+.heading, .nav-link{
+  text-transform: capitalize;
+  color: black;
+}
+.sectionAnimation{
+  scroll-behavior: smooth;
+  animation: backInLeft;
+  animation-duration: 2.0s;
+}
+.sectionAnimationRight{
+  scroll-behavior: smooth;
+  animation: backInRight;
+  animation-duration: 1.5s;
+}
+
+.whatsappIcon{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.whatsappIcon img{
+  width: 80px;
+  height: 80px;
+}
+
+section .container-fluid{
+  padding: 5% 8%;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #25b09b;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
+
+
+/* //navbar navbar */
+nav{
+  background: var(--teal);
+}
+nav .container-fluid{
+  padding: 1% 8% ;
+}
+.nav-link {
+  font-size: larger;
+}
+.navbar-brand {
+  font-size: xx-large;
+}
+
+/* //header section */
+.header{
+height: 100vh;
+}
+@media (max-width:767px) {
+  .header{
+    height: 20vh;
+  }
+}
+
+
+/* //welcome */
+
+.w-grid > div{
+  height: 600px;
+  margin: 2% 0;
+}
+@media (max-width:767px) {
+  .w-grid > div{
+    height: 400px;
+  }
+}
+.w-grid h3{
+text-transform: uppercase;
+}
+.living *, .bed *, .swimming *, .footer *, .a-grid *, .IdHeader *,form button, .regBtn, .r-grid main > div:hover{
+  color: white;
+}
+.w-backdrop{
+  backdrop-filter: brightness(65%) contrast(110%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+
+
+.living{
+  background-image: url('./assets/WhatsApp\ Image\ 2024-09-14\ at\ 10.22.58.jpeg');
+}
+.bed{
+  background-image: url('./assets/WhatsApp\ Image\ 2024-09-14\ at\ 10.23.27.jpeg');
+}
+.swimming{
+  background-image: url('./assets/WhatsApp\ Image\ 2024-09-14\ at\ 10.23.41.jpeg');
+}
+
+/* about section about section */
+.a-grid {
+  background: black;
+  min-height: 600px;
+}
+.a-grid small{
+  color: var(--teal);
+  font-weight: lighter;
+}
+.a-grid h1{
+  color: var(--secondary);
+  font-weight: lighter;
+}
+@media (max-width:767px) {
+  .a-grid{
+    min-height: 400px;
+  }
+}
+.a-background{
+  background-image: url('./assets/WhatsApp Image 2024-09-14 at 10.22.58.jpeg');
+  background-size: cover;
+}
+/* room seciton */
+.room{
+  background: var(--offWhite);
+}
+.r-grid > div{
+  background: white;
+  height: auto;
+  margin-top: 15px;
+}
+
+.r-grid main{
+  padding: 5% 4%;
+}
+.r-grid main > div{
+  width: 100%;
+  border: solid 4px var(--teal);
+  color: var(--teal);
+  margin: 2% 0;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+.r-grid main > div:hover{
+  background-color: var(--teal);
+  transition: var(--transition);
+  
+}
+.r-grid .one, .r-grid .two, .r-grid .three{
+  height: 400px;
+  width: 100%;
+}
+/* */
+.r-grid .heading{
+  margin-bottom: 40px;
+}
+
+/* essential section */
+.e-grid{
+  margin: 4% 0;
+  font-size: large;
+  padding: 0 4%;
+}
+.e-div{
+  background: var(--teal);
+  width: 50%;
+  padding: 5px;
+  margin: 4px 0;
+  color: black;
+}
+.e-grid img{
+  width: 60px;
+  height: 60px;
+}
+
+
+.footer{
+  background-image: url('./assets/WhatsApp\ Image\ 2024-09-15\ at\ 09.47.13.jpeg');
+}
+
+
+
+/* id if id id idididididi did */
+.IdBackground{
+  height: 300px;
+}
+@media(max-width:767px){
+  .IdBackground{
+    height: 150px;
+  }
+}
+.IdHeader{
+  backdrop-filter: brightness(65%) contrast(50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: 10px;
+  justify-content: end;
+  padding: 1% 8%;
+}
+.IdBooking{
+  background: var(--secondary);
+  padding: 2% 5%;
+  text-align: center;
+  text-transform: capitalize;
+  height: 100%;
+  
+  
+  
+}
+.IdBooking form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  
+  
+}
+.IdBooking form > div{
+  font-size: 30px;
+  
+}
+
+
+
+
+/* register regeistration sign up */
+
+.registerForm{
+
+  width: 100%;
+  border-radius: 10px;
+}
+
+.registerForm input, #upload input, textarea{
+  width: 100%;
+  padding: 3px;
+  border-radius:4px;
+}
+
+
+
+
+
+/* .availSectiondiv{
+  background: var(--primary);
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+
+  
+  
+}
+.availSectiondiv form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.availSection{
+  margin-top: -5%;
+} */
