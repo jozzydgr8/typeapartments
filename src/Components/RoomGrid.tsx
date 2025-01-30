@@ -19,7 +19,7 @@ export const RoomGrid = ({items}:ItemProps)=>{
 
                 </div>
                 <main>
-                    <h2 className='heading'>{items.apartment}</h2>
+                    <h2 className='heading'>{items.title}</h2>
                     <p>{items.overview}</p>
                     <div>
                         <a>BOOK NOW FROM {items.daily} Naira</a>

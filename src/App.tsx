@@ -7,6 +7,7 @@ import { UseContextData } from './ContextFolder/UseContextData';
 import {initializeApp} from 'firebase/app'
 import { contextType } from './Types/Types';
 import { IDLayout } from './IDLayout';
+import { CheckOut } from './Components/CheckOut';
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDHAJYVLlNM8u2L-PMngG-oeJ9BpEw6AqA",
@@ -22,6 +23,7 @@ const app = initializeApp(firebaseConfig);
 //firebase methods 
 export const db = getFirestore();
 export const colRef = collection(db, 'apartment');
+export const cartRef = collection(db, 'cart')
 function App() {
   const {dispatch, state} = UseContextData();
   useEffect(() => {
@@ -37,7 +39,7 @@ function App() {
         return {
           id: doc.id,
           fileUrls: docData.fileUrls || [], // Default to empty array if not present
-          apartment: docData.apartment || '', // Default to empty string if not present
+          title: docData.apartment || '', // Default to empty string if not present
           daily: docData.daily || '', // Default to empty string if not present
           overview: docData.overview || '', // Default to empty string if not present
         };
@@ -72,6 +74,7 @@ function App() {
       <Route path='/' element={<LayOut/>}>
       <Route index element={<Home/>}/>
       <Route path=':id' element={<IDLayout/>}/>
+      <Route path='/checkout/:id' element={<CheckOut/>}/>
 
       </Route>
       </>

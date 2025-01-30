@@ -3,7 +3,18 @@ export type contextType ={
     fileUrls:{
         url?:string,
     }[]
-    apartment:string,
+    title:string,
     daily:string,
     overview:string
 } 
+
+export type checkValid = {
+    name:string,
+    phone:string,
+    email:string,
+}
+
+
+
+
+

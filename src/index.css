@@ -335,7 +335,16 @@ text-transform: uppercase;
 
 
 
-
+.checkOutBookingForm{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checkOutBookingForm input{
+  padding: 5px;
+  border-radius: 5px;
+}
 /* .availSectiondiv{
   background: var(--primary);
   width: 100%;
