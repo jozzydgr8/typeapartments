@@ -38,9 +38,9 @@ export const Footer = ()=>{
                         </h1>
                         <p>
                             <Link to="https://wa.link/b8xq56">Reach Out</Link>
-                            <hr />
+                            
                             <Link to="/apartments">Our Apartments</Link>
-                            <hr />
+                            
                             <Link to="/">privacy policy</Link>
                         </p>
                        </div>

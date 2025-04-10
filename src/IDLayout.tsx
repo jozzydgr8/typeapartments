@@ -3,17 +3,20 @@ import { useNavigate, useParams } from "react-router-dom"
 import { contextType } from "./Types/Types";
 import { UseContextData } from "./ContextFolder/UseContextData";
 import Similar from "./Components/Similar";
-import { BookForm } from "./Components/BookForm";
+import { Dayjs } from "dayjs";
+import { BookingApp } from "./hooks/BookingFunc";
 
 export const IDLayout = ()=>{
     const{id} = useParams();
     const {state} = UseContextData();
     const [mapData, setMapData] = useState({}as contextType);
     const [activeIndex, setActiveIndex] = useState(0);
-    const[checkIn, setCheckIn] =useState <string | any>('');
-    const [checkOut, setCheckOut] = useState<string | any>('');
-    const [guest, setGuest] = useState('');
+    const [checkIn, setCheckIn] = useState<Dayjs | null>(null);
+    const [checkOut, setCheckOut] = useState<Dayjs | null>(null);
+    const [proceedToCheckout, setProceedToCheckout] = useState(false);
+
     const navigate = useNavigate();
+
     useEffect(()=>{
         const data = state?.data && state.data.find(item => item.id === id);
         if(data){
@@ -26,35 +29,20 @@ export const IDLayout = ()=>{
     const headStyle = {
         backgroundImage:`url(${url})`
     }
+
     
-    //logic function cor form
-    const calculateNights = (checkIn: string | Date, checkOut: string | Date): number => {
-        if (checkIn && checkOut) {
-            const checkInDate = new Date(checkIn);
-            const checkOutDate = new Date(checkOut);
-            
-            // Ensure the dates are valid
-            if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
-                return 0; // Return 0 if either date is invalid
-            }
-    
-            const nights = (checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 3600 * 24);
-            return nights > 0 ? nights : 0; // Return 0 if checkOut is earlier than checkIn
-        }
-        return 0; // Return 0 if checkIn or checkOut is not provided
-    };
-    
-    const nights = calculateNights(checkIn, checkOut);
 
     const statePassed = {
-        checkIn:checkIn.$d,
-        checkOut:checkOut.$d,
-        nights:nights
+        checkIn:checkIn,
+        checkOut:checkOut,
     }
 
+   
+
     //handleSubmit
-    const handleSubmit = (e:React.FormEvent<HTMLFormElement>)=>{
-        e.preventDefault();
+    const handleProceedToCheckout = async ()=>{
+    
+        
         navigate(`/checkOut/${mapData.id}`,{state:statePassed})
         
     }
@@ -83,8 +71,8 @@ export const IDLayout = ()=>{
 
             <div className="container-fluid">
                 <h1 className='heading'>{mapData?.title}</h1>
-                <div className="row">
-                    <div className='col-md-8'>
+                <div className="row layoutbook">
+                    <div className='col-md-6'>
 
 {/* 
                     carousel carouselcarousel carouselcarousel carouselcarousel carouselcarousel carouselcarousel carousel
@@ -113,8 +101,10 @@ export const IDLayout = ()=>{
                         className={`carousel-item ${activeIndex === index ? 'active' : ''}`}
                         style={{
                             backgroundImage: `url(${item.url})`,
+                            width:'100%',
                             height: '400px',
-                            backgroundSize: 'cover',
+                            backgroundSize: 'contain',
+                            backgroundRepeat:'no-repeat',
                             backgroundPosition: 'center'
                         }}
                     ></div>
@@ -139,6 +129,11 @@ export const IDLayout = ()=>{
                         carousel carouselcarousel carouselcarousel carousel carousel carousel carousel carousel */}
 
                         <hr />
+                        
+                    </div>
+
+
+                        <div className="col-md-6 overview-grid">
                         <p>{mapData.overview}</p>
                         <hr />
                         <div>
@@ -152,24 +147,33 @@ export const IDLayout = ()=>{
                                 <div className="col-md-4">Security</div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className='IdBooking'>
-                        <BookForm id={mapData.id}
-                        nights={nights}
-                         checkOut={checkOut}
-                         checkIn={checkIn}
-                         setOut={setCheckOut}
-                         setIn={setCheckIn}
-                         setGuest={setGuest}
-                         guest={guest}
-                         handleSubmit={handleSubmit}
-                         />
-
                         </div>
+
+
+
+                    {/* calendar calendar calendar */}
+{/* calendar calendar calendar */}
+                    {/* calendar calendar calendar */}
+                    {/* calendar calendar calendar */}
+                    {/* calendar calendar calendar */}
+                    
+            </div>
+            <div className="col-md-12">
+                    <br/>
+                    <div style={{textAlign:'center'}}>
+                    <h2>Book Now</h2>
+                    <small> Select day and start booking now</small>
                     </div>
-                </div>
-                <hr />
+                    <BookingApp
+                        checkIn={checkIn}
+                        setCheckIn={setCheckIn}
+                        checkOut={checkOut}
+                        setCheckOut={setCheckOut}
+                        setProceedToCheckout={setProceedToCheckout}
+                        />
+                        {proceedToCheckout && <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>}
+                    
+                    </div>
                 <Similar />
             </div>
         </section>

@@ -29,7 +29,7 @@ code {
   --transition: 0.3s ease-in-out;
 }
 
-a{
+a, .link{
   text-decoration: none;
   color: inherit;
 }
@@ -163,7 +163,7 @@ height: 100vh;
 .w-grid h3{
 text-transform: uppercase;
 }
-.living *, .bed *, .swimming *, .footer *, .a-grid *, .IdHeader *,form button, .regBtn, .r-grid main > div:hover{
+.living *, .bed *, .swimming *, .footer *, .a-grid *, .IdHeader *,form button, .regBtn, .r-grid main > .link:hover{
   color: white;
 }
 .w-backdrop{
@@ -223,7 +223,7 @@ text-transform: uppercase;
 .r-grid main{
   padding: 5% 4%;
 }
-.r-grid main > div{
+.r-grid main > .link{
   width: 100%;
   border: solid 4px var(--teal);
   color: var(--teal);
@@ -231,8 +231,9 @@ text-transform: uppercase;
   padding: 5px;
   text-align: center;
   cursor: pointer;
+  display: block;
 }
-.r-grid main > div:hover{
+.r-grid main > .link:hover{
   background-color: var(--teal);
   transition: var(--transition);
   
@@ -363,3 +364,20 @@ text-transform: uppercase;
 .availSection{
   margin-top: -5%;
 } */
+ .checkOutLogo {
+  display: flex;
+  align-items: center;
+ }
+ .checkOutLogo img{
+  width: 55px;
+  height: 50px;
+  
+ 
+ }
+
+ .overview-grid{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+

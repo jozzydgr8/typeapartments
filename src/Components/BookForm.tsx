@@ -1,14 +1,11 @@
 import { DatePicker } from "antd"
-import { contextType } from "../Types/Types"
-import { Link } from "react-router-dom"
-import { PaystackButton } from "react-paystack"
 
 type bookType ={
     id:string,
-    checkOut:string ,
-    checkIn:string,
-    setIn:React.Dispatch<React.SetStateAction<string>>,
-    setOut:React.Dispatch<React.SetStateAction<string>>,
+    checkOut:string | Date ,
+    checkIn:string | Date,
+    setIn:React.Dispatch<React.SetStateAction<string | Date>>,
+    setOut:React.Dispatch<React.SetStateAction<string | Date>>,
     nights:number,
     setGuest:React.Dispatch<React.SetStateAction<string>>,
     guest:string,

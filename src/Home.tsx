@@ -1,3 +1,4 @@
+
 import { AboutSection } from "./Pages/About"
 import { Essentials } from "./Pages/Essentials"
 import Header from "./Pages/Header"
@@ -12,6 +13,7 @@ export const Home = ()=>{
         <AboutSection/>
         <Rooms/>
         <Essentials/>
+       
         </>
 
     )
